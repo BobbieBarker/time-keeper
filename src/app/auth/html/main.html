@@ -1,0 +1,55 @@
+<div layout="row" layout-align="center center" flex>
+  <md-card
+  class="md-card-z3"
+  flex="45"
+  flex-sm="100"
+  flex-gt-sm="75"
+  flex-gt-md="65"
+  flex-lg="55"
+  flex-gt-lg="45">
+  <md-toolbar>
+    <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+      <span>Trapper Keeper</span>
+      <span flex></span>
+      <div layout-padding layout-margin>
+        <!--good place for buttons -->
+      </div>
+    </div>
+  </md-toolbar>
+  <md-card-content layout="row" layout-padding layout-margin>
+
+    <div layout="column" layout-align="center center" layout-fill>
+      <form name="signInForm" layout-fill role="form" novalidate flex>
+        <div class="md-padding" layout-fill flex>
+          <md-input-container flex>
+            <label for="emailField">Email:</label>
+            <md-input
+            id="emailField"
+            type="email"
+            ng-model="user.email"
+            required>
+            </md-input>
+          </md-input-container>
+          <md-input-container>
+          <label for="passwordField">Password:</label>
+          <md-input
+          type="password"
+          ng-model="user.password"
+          required>
+          </md-input>
+          </md-input-container>
+        </div>
+        <div flex>
+          <md-button
+          ng-click="signIn.submit(user)"
+          ng-disabled="signInForm.$invalid"
+          class="md-primary md-raised"
+          flex>
+          Login
+          </md-button>
+        </div>
+      </form>
+    </div>
+  </md-card-content>
+</md-card>
+</div>
