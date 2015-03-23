@@ -4,15 +4,13 @@
 var moduleName = 'timeKeeper.auth.SignInCtrl';
 
 class SignInCtrl {
-  constructor (Auth, Session) {
+  constructor ($state, Auth, Session) {
     this.submit = function(user){
       Auth.auth()
         .$authWithPassword({email: user.email, password: user.password})
           .then(function(authData){
-            //console.log(authData);
-            console.log(Session)
             Session.create(authData.uid, authData.token);
-            console.log(Session.id)
+            $state.go('dashboard')
           }).catch(function(error){
             console.log(error)
           })
@@ -20,6 +18,6 @@ class SignInCtrl {
   }
 }
 
-SignInCtrl.$inject = ['Auth', 'Session'];
+SignInCtrl.$inject = ['$state', 'Auth', 'Session'];
 angular.module(moduleName, []).controller('signInCtrl', SignInCtrl);
 export default moduleName;

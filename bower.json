@@ -11,7 +11,8 @@
     "traceur-runtime": "~0.0.74",
     "angular": "*",
     "firebase": "*",
-    "angularfire": "*"
+    "angularfire": "*",
+    "moment": "*"
   },
   "devDependencies": {
     "angular-mocks": "~1.3.4"
