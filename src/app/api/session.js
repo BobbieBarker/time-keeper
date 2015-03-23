@@ -41,12 +41,9 @@ class Session {
       });
       this.destroy();
     };
-    
-    this.id = {
-      get id(){
-        return self.get('id');
-      }
-    }
+  }
+  get id(){
+    return this.get('id');
   }
 }
 
