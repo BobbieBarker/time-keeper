@@ -17,7 +17,7 @@ fireBaseModuleName,
 authModuleName,
 dashboardModule])
   .controller('NavbarCtrl', NavbarCtrl)
-  .controller('mainCtrl', function($scope, $rootScope){
+  .controller('mainCtrl', function($scope, $rootScope, $state){
     console.log('the cheesiest')
     $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
       console.log(error)

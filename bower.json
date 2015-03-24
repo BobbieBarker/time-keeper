@@ -12,7 +12,8 @@
     "angular": "*",
     "firebase": "*",
     "angularfire": "*",
-    "moment": "*"
+    "moment": "*",
+    "lodash": "*"
   },
   "devDependencies": {
     "angular-mocks": "~1.3.4"

@@ -12,6 +12,9 @@ angular.module(moduleName, [])
         resolve: {
           currentAuth: function(Auth){
             return Auth.auth().$requireAuth();
+          },
+          timeCardList: function(timeCard){
+            return timeCard.timeCardList();
           }
         }
       });
