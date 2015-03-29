@@ -7,7 +7,7 @@ class NewDayService {
         if(_.isEqual(isLast(timeCardList), true)){
           resolve(timeCardList);
         }else{
-          var today = {start: 'Clock In'};
+          var today = {start: ''};
           timeCardList.$add(today);
           resolve(timeCardList);
         }
@@ -17,10 +17,10 @@ class NewDayService {
 
     var isLast = function(timeCardList){
       var lastElement = _.last(timeCardList);
-      if(!_.isUndefined(lastElement)){
+      if(!_.isUndefined(lastElement) && !_.isEmpty(lastElement.start)){
         return moment().isSame(lastElement.start, 'day');
       }
-      return false;
+      return _.isEmpty(lastElement.start);
     }
   }
 }

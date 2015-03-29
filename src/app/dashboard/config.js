@@ -16,7 +16,7 @@ angular.module(moduleName, [])
           timeCardList: function(timeCard, newDay){
             return timeCard.timeCardList().$loaded().then(data => {
               return newDay.addDay(data).then(data => {
-                console.log(data, 'final resolve')
+                console.log(data, 'in the config')
                 return data;
               })
             })
