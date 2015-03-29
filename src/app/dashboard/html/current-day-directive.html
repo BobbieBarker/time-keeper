@@ -1,0 +1,25 @@
+<div layout="column" layout-align="center center" layout-fill>
+  <md-list layout-fill>
+    <md-item ng-repeat="(id, entry) in currentday.cardList">
+      <md-item-content>
+      <md-whiteframe class="md-whiteframe-z1" layout-margin flex>
+        <div layout="row" layout-align="space-between start" layout-margin flex>
+          <p flex>
+            {{entry.start | date:'shortTime'}}
+          </p>
+          <md-button
+          class="md-raised"
+          ng-click="currentday.update(entry, 'start')"
+          flex>
+            <i class="fa fa-check fa-lg" style="color:green"></i>
+          </md-button>
+        </div>
+        </md-whiteframe>
+      </md-item-conten>
+    </md-item>
+  </md-list>
+</div>
+
+<md-button class="md-raised">
+  <i class="fa fa-check fa-lg"></i>
+</md-button>

@@ -13,8 +13,13 @@ angular.module(moduleName, [])
           currentAuth: function(Auth){
             return Auth.auth().$requireAuth();
           },
-          timeCardList: function(timeCard){
-            return timeCard.timeCardList();
+          timeCardList: function(timeCard, newDay){
+            return timeCard.timeCardList().$loaded().then(data => {
+              return newDay.addDay(data).then(data => {
+                console.log(data, 'final resolve')
+                return data;
+              })
+            })
           }
         }
       });
