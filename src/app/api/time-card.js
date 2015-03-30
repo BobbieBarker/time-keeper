@@ -6,10 +6,10 @@ class TimeCard {
   constructor($firebaseArray, Ref){
     this.timeCardList = function(){
       return $firebaseArray(Ref.firebase.child('timeCards'));
-    }
+    };
     this.timeCard = function(){
 
-    }
+    };
   }
 }
 TimeCard.$inject = ['$firebaseArray', 'Ref'];

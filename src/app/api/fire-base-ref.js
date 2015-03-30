@@ -5,7 +5,7 @@ var moduleName = 'timeKeeper.firebase.ref';
 
 class Ref {
   get firebase(){
-    return new Firebase(BASE_URL)
+    return new Firebase(BASE_URL);
   }
 }
 

@@ -1,0 +1,19 @@
+<md-item>
+  <md-item-content>
+    <md-whiteframe class="md-whiteframe-z2" layout-margin flex>
+      <div layout="row" layout-align="space-between start" layout-margin flex>
+        <p ng-show="timeentry.time[timeentry.type]" flex>
+          {{timeentry.time[timeentry.type] | date:'shortTime'}}
+        </p>
+        <p ng-show="!timeentry.time[timeentry.type]" flex>
+          Tap Button to Enter Time
+        </p>
+        <md-button
+        class="md-raised"
+        ng-click="timeentry.update(timeentry.time)">
+          <i class="fa fa-check fa-lg" style="color:green"></i>
+        </md-button>
+      </div>
+    </md-whiteframe>
+  </md-item-content>
+</md-item>

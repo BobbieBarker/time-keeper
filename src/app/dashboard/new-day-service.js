@@ -8,20 +8,22 @@ class NewDayService {
           resolve(timeCardList);
         }else{
           var today = {start: ''};
+          console.log('this will no stop')
           timeCardList.$add(today);
           resolve(timeCardList);
         }
       });
       return promise;
-    }
+    };
 
     var isLast = function(timeCardList){
       var lastElement = _.last(timeCardList);
+      var isToday = moment.tz(lastElement.start, "America/Los_Angeles").toISOString()
       if(!_.isUndefined(lastElement) && !_.isEmpty(lastElement.start)){
-        return moment().isSame(lastElement.start, 'day');
+        return moment(isToday).isSame(moment(lastElement.start), 'day');
       }
       return _.isEmpty(lastElement.start);
-    }
+    };
   }
 }
 

@@ -1,22 +1,36 @@
 'use strict';
+var moduleName = 'timeKeeper.dashboard.currentDay';
+
 class CurrentDayCtrl {
   constructor(){
-    this.update = function(entry, period){
-      console.log(entry, 'blah blah')
-      if(_.isEqual('start', period)){
-        entry.start = moment().toISOString();
-      }else if(_.isEqual('lunch_out', period)){
-        entry.lunch_out = moment().toISOString();
-      }else if(_.isEqual('lunch_in', period)){
-        entry.lunch_in = moment().toISOString();
-      }else if(_.isEqual('stop', period)){
-        entry.stop = moment().toISOString();
-      }
-      this.cardList.$save(entry);
+    this.date = moment().toISOString();
+    this.moveRight = function(){
+      this.date = moment(this.date).add(1, 'days').toISOString();
+      this.entry = _.find(this.cardList, timeCard => {
+         if(moment(this.date).isSame(timeCard.start, 'day')){
+           return timeCard
+         }
+      })
     }
+
+    this.moveLeft = function(){
+      this.date = moment(this.date).subtract(1, 'days').toISOString();
+      this.entry = _.find(this.cardList, timeCard => {
+         if(moment(this.date).isSame(timeCard.start, 'day')){
+           return timeCard
+         }
+      })
+    }
+
+    this.init = function(){
+      this.entry = _.last(this.cardList);
+    };
+
+
+    this.init();
   }
-};
-var moduleName = 'timeKeeper.dashboard.currentDay';
+}
+
 angular.module(moduleName, [])
   .directive('currentDay', function(){
     return {
@@ -27,7 +41,7 @@ angular.module(moduleName, [])
       templateUrl: 'app/dashboard/html/current-day-directive.html',
       controller: 'currentDayCtrl as currentday',
       bindToController: true,
-    }
+    };
   }).controller('currentDayCtrl', CurrentDayCtrl);
 
 

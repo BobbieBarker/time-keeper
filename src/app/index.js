@@ -18,11 +18,10 @@ authModuleName,
 dashboardModule])
   .controller('NavbarCtrl', NavbarCtrl)
   .controller('mainCtrl', function($scope, $rootScope, $state){
-    console.log('the cheesiest')
     $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
-      console.log(error)
+      console.log(error);
       if (_.isEqual(error, 'AUTH_REQUIRED')) {
         $state.go('sign-in');
       }
     });
-  })
+  });

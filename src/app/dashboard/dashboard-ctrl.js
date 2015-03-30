@@ -8,6 +8,6 @@ class DashBoardCtrl {
   }
 }
 
-DashBoardCtrl.$inject = ['currentAuth', 'timeCardList']
+DashBoardCtrl.$inject = ['currentAuth', 'timeCardList'];
 angular.module(moduleName, []).controller('dashBoardCtrl', DashBoardCtrl);
 export default moduleName;

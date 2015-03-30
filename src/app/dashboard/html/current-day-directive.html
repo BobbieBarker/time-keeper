@@ -1,23 +1,21 @@
-<div layout="column" layout-align="center center" layout-fill>
-  <md-list layout-fill>
-    <md-item ng-repeat="(id, entry) in currentday.cardList | findDay">
-      <md-item-content>
-      <md-whiteframe class="md-whiteframe-z1" layout-margin flex>
-        <div layout="row" layout-align="space-between start" layout-margin flex>
-          <p ng-show="entry.start" flex>
-            {{entry.start | date:'shortTime'}}
-          </p>
-          <p ng-show="!entry.start" flex>
-            Clock Out
-          </p>
-          <md-button
-          class="md-raised"
-          ng-click="currentday.update(entry, 'start')">
-            <i class="fa fa-check fa-lg" style="color:green"></i>
-          </md-button>
-        </div>
-        </md-whiteframe>
-      </md-item-content>
-    </md-item>
-  </md-list>
+<div layout="column" layout-align="center center" layout-margin layout-padding layout-fill>
+  <md-card
+  layout-fill
+  flex
+  ng-swipe-right="currentday.moveRight()"
+  ng-swipe-left="currentday.moveLeft()">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <span>{{currentday.date | date:'mediumDate'}}</span>
+      </div>
+    </md-toolbar>
+    <md-card-content>
+      <md-list layout-fill>
+          <time-entry time="currentday.entry" type="start" time-card-list="currentday.cardList"></time-entry>
+          <time-entry time="currentday.entry" type="lunch_out" time-card-list="currentday.cardList"></time-entry>
+          <time-entry time="currentday.entry" type="lunch_in" time-card-list="currentday.cardList"></time-entry>
+          <time-entry time="currentday.entry" type="stop" time-card-list="currentday.cardList"></time-entry>
+      </md-list>
+    </md-card-content>
+  </md-card>
 </div>

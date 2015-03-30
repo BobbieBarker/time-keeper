@@ -4,7 +4,7 @@ import {default as configModule} from './config';
 import {default as dashBoardCtrlModule} from './dashboard-ctrl';
 import {default as currentDayModule} from './current-day-directive';
 import {default as newDayModule} from './new-day-service';
-import {default as findDayModule} from './find-day-filter';
+import {default as timeEntryModule} from './time-entry';
 
 var moduleName = 'timeKeeper.dashboard';
 
@@ -13,7 +13,7 @@ angular.module(moduleName, [
   dashBoardCtrlModule,
   currentDayModule,
   newDayModule,
-  findDayModule
+  timeEntryModule
 ]);
 
 export default moduleName;
