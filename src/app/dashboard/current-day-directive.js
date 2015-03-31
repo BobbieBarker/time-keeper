@@ -7,7 +7,7 @@ class CurrentDayCtrl {
     this.moveRight = function(){
       this.date = moment(this.date).add(1, 'days').toISOString();
       this.entry = _.find(this.cardList, timeCard => {
-         if(moment(this.date).isSame(timeCard.start, 'day')){
+        if(moment(this.date, 'YYYY-MM-DD').isSame(moment(timeCard.start, 'YYYY-MM-DD'))){
            return timeCard
          }
       })
@@ -16,7 +16,7 @@ class CurrentDayCtrl {
     this.moveLeft = function(){
       this.date = moment(this.date).subtract(1, 'days').toISOString();
       this.entry = _.find(this.cardList, timeCard => {
-         if(moment(this.date).isSame(moment(timeCard.start), 'day')){
+         if(moment(this.date, 'YYYY-MM-DD').isSame(moment(timeCard.start, 'YYYY-MM-DD'))){
            return timeCard
          }
       })
