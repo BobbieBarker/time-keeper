@@ -17,8 +17,10 @@ class NewDayService {
 
     var isLast = function(timeCardList){
       var lastElement = _.last(timeCardList);
-      if(!_.isUndefined(lastElement) && !_.isEmpty(lastElement.start)){
-        return moment(moment().toISOString()).isSame(moment(lastElement.start), 'day');
+      if(_.isUndefined(lastElement)){
+        return false
+      }else if(!_.isUndefined(lastElement) && !_.isEmpty(lastElement.start)){
+        return moment.utc().isSame(moment(lastElement.start, 'YYYY-MM-DD'), 'day');
       }
       return _.isEmpty(lastElement.start);
     };
