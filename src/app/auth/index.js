@@ -1,7 +1,7 @@
 'use strict';
 
-import {default as authCtrlModule} from './sign-in-ctrl';
-import {default as configModule} from './config';
+import authCtrlModule from './sign-in-ctrl';
+import configModule from './config';
 var moduleName = 'timeKeeper.auth';
 
 angular.module(moduleName, [

@@ -11,24 +11,23 @@ import ngAria from 'angular-aria';
 import angularfire from 'angularfire';
 
 import NavbarCtrl from '../components/navbar/navbar.controller';
-import {default as fireBaseModuleName} from './api/index';
-import {default as authModuleName} from './auth/index';
-import {default as dashboardModule} from './dashboard/index';
+import fireBaseModuleName from './api/index';
+import authModuleName from './auth/index';
+import dashboardModule from './dashboard/index';
 
 
 angular.module('timeKeeper', [
-ngAnimate,
-ngCookies,
-ngTouch,
-ngSanitize,
-uirouter,
-ngMaterial,
-fireBaseModuleName,
-authModuleName,
-dashboardModule,
-angularfire
-])
-  .controller('NavbarCtrl', NavbarCtrl)
+    ngAnimate,
+    ngCookies,
+    ngTouch,
+    ngSanitize,
+    uirouter,
+    ngMaterial,
+    fireBaseModuleName,
+    authModuleName,
+    dashboardModule,
+    angularfire
+]).controller('NavbarCtrl', NavbarCtrl)
   .controller('mainCtrl', function($scope, $rootScope, $state){
     $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
       console.log(error);
