@@ -1,5 +1,6 @@
 'use strict';
 
+import Firebase from 'firebase';
 const BASE_URL = 'https://trapper-keeper.firebaseio.com';
 var moduleName = 'timeKeeper.firebase.ref';
 

@@ -1,13 +1,13 @@
 'use strict';
-
 var moduleName = 'timeKeeper.auth.config';
+import main from './html/main.html'
 
 angular.module(moduleName, [])
   .config(function($stateProvider, $urlRouterProvider){
     $stateProvider
       .state('sign-in', {
         url: '/sign-in',
-        templateUrl: 'app/auth/html/main.html',
+        template: main,
         controller: 'signInCtrl',
         controllerAs: 'signIn'
       });
